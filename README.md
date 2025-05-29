@@ -1,4 +1,19 @@
-### Hi there 👋
+
+# Hi there 👋
+
+:school: Bachelor's in Mechatronics  
+:computer: Data Science and ML Enthusiast  
+:glasses: NVDA Screen Reader User  
+:musical_keyboard: Musician  
+
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Frames-purple?logo=pandas)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-lightgrey?logo=scikit-learn)
+![MLflow](https://img.shields.io/badge/Matplotlib-Graphs-yellow?logo=matplotlib)
+![VS Code](https://img.shields.io/badge/VS%20Code-Editor-blue?logo=visualstudiocode)
+![Git](https://img.shields.io/badge/Git-Version%20Control-red?logo=git)
+![GitHub](https://img.shields.io/badge/GitHub-Code-black?logo=github)
+![WSL](https://img.shields.io/badge/Linux-Ubuntu-orange?logo=ubuntu)
 
 <!--
 **daarojaspa/daarojaspa** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
