@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Daniel's Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --primary: #D16E49;
+      --background: #F5EBD6;
+      --text: #333;
+      --accent: #7A5C58;
+    }
+
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--accent);
+      color: white;
+      padding: 2em 1em;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 2em 1em;
+    }
+
+    article {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 1em;
+      width: 300px;
+      margin: 1em;
+    }
+
+    h2 a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    h2 a:hover {
+      text-decoration: underline;
+    }
+
+    section.about, footer {
+      padding: 2em 1em;
+      text-align: center;
+    }
+
+    footer {
+      background-color: var(--accent);
+      color: white;
+    }
+
+    .icon-links img {
+      width: 32px;
+      margin: 0.5em;
+      vertical-align: middle;
+    }
+
+    .icon-links a {
+      display: inline-block;
+      margin: 0 1em;
+    }
+
+    a:focus, button:focus {
+      outline: 2px dashed var(--primary);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hi there, my name is Daniel Rojas and here is what I have been doing:</h1>
+  </header>
+
+  <section class="container">
+    <article>
+      <h2><a href="https://github.com/tuusuario/proyecto1" target="_blank">Fundamentals</a></h2>
+        <p><strong>Fundamentals</strong> is a blog where I break down complex tech and data science topics in simple terms — especially for non-technical readers. I cover subjects like how money works, how the internet works, and how natural language processing (NLP) works, aiming to make the fundamentals accessible to everyone.</p>
+
+        <p>The blog began in 2023, when I started writing on Medium about the topics I was learning at the time — front-end development, accessibility, game theory, and psychology — as a way to better understand myself. However, I soon realized that Medium is not a very accessible platform for screen reader users.</p>
+
+        <p>That motivated me to create my own blog, one that fully complies with <a href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener noreferrer">WCAG 2.1</a> accessibility standards.</p>
+
+    </article>
+    <article>
+      <h2><a href="https://github.com/tuusuario/proyecto2" target="_blank">Proyecto 2</a></h2>
+      <p>Descripción breve del proyecto 2.</p>
+    </article>
+    <article>
+      <h2><a href="https://github.com/tuusuario/proyecto3" target="_blank">Proyecto 3</a></h2>
+      <p>Descripción breve del proyecto 3.</p>
+    </article>
+  </section>
+
+  <section class="about">
+    <h2>About Myself</h2>
+    <p>Soy un entusiasta de la ciencia de datos y la ingeniería de machine learning, apasionado por aplicar soluciones inteligentes y escalables a problemas reales.</p>
+    <p><a href="https://github.com/tuusuario" target="_blank" style="color: var(--primary);">Visita mi GitHub</a></p>
+  </section>
+
+  <footer>
+    <h2>Contact Me</h2>
+    <div class="icon-links">
+      <a href="www.linkedin.com/in/daniel-rojas-paredes-8616bb1ab" target="_blank" aria-label="LinkedIn">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Icon">
+      </a>
+    <a href="https://medium.com/@daarojaspa"><img src="https://logowik.com/content/uploads/images/monogram-medium7275.logowik.com.webp" alt="Medium blog"></a>
+    <a href="https://github.com/daarojaspa"><img src="https://blog-wp.openlandscape.cloud/wp-content/uploads/2019/09/Github-%E0%B8%84%E0%B8%B7%E0%B8%AD-%E0%B8%AD%E0%B8%B0%E0%B9%84%E0%B8%A3-Blog-Logo-1024x535.jpg" alt="GitHub"></a>
+    <a href="mailto:daarojaspa@unal.edu.co" aria-label="Correo electrónico">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Icon">
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
