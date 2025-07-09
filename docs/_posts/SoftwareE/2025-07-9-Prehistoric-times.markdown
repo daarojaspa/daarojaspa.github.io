@@ -1,4 +1,7 @@
-# From Prehistoric Times to You
+---
+title: "From Prehistoric times to you"
+category: Software
+--- 
 
 In the beginning, computers were these huge things, you needed a big room just to have one computer, and they did not have OS. No, you wrote the program and waited for the output in a paper receipt-like format. One program at a time, but then running more than one program at a time was needed. Here is when the first OSs were built, to run on servers because in the 70s personal computers or PCs weren't a thing. This is how UNIX and BSM were born. There were a whole lot more, but from these two, the operating systems from today were born. From the second one, Sun Microsystems and FreeBSD were created. Then Xerox Laboratory created a computer with something really strange called a mouse, and a GUI interface where you didn’t type commands to interact with the computer but it showed you everything in windows with graphic icons, and you used the mouse to select these icons.
 
