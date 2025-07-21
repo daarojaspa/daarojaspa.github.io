@@ -1,4 +1,7 @@
-# A sea of cables and protocols
+---
+title: "A sea of cables and protocols"
+category: Software
+--- 
 
 A message from your friend: "Have you already uploaded the photo?" — a simple thing that enmascarates a complex and humongous network of cables and protocols that allows you two to communicate. Let's dive a little deeper into the internet.
 
