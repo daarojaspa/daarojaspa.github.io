@@ -28,12 +28,12 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://daarojaspa.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
 github_username:  daarojaspa
-linkedin_username: daarojaspa
+linkedin_username: daniel-rojas-paredes-8616bb1ab
 medewium_username: daarojaspa
 links:
-  -https://github.com/daarojaspa
-  -www.linkedin.com/in/daniel-rojas-paredes-8616bb1ab
-  -https://medium.com/@daarojaspa
+  - https://github.com/daarojaspa
+  - https://www.linkedin.com/in/daniel-rojas-paredes-8616bb1ab
+  - https://medium.com/@daarojaspa
 avatar: https://avatars.githubusercontent.com/u/65495909?s=400&u=e9099a2ea24a937689a7313a20cf4b3f7102e0c7&v=4
 # Build settings
 theme: minima
