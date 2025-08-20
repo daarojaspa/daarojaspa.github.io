@@ -1,4 +1,3 @@
-
 # Hi there 👋
 
 :school: Bachelor's in Mechatronics  
@@ -29,3 +28,11 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+If you want changes to show on GitHub Pages, you need to copy the file you edited 
+from the gem into your repo’s, _includes folder, and commit it.
+to run the docs file in  a locall server  run in the folder console:
+bundle exec jekyll serve, this will:
+
+ the gems are in 
+/home/dan/.gem/gems/minima-2.5.1/_includes/social.html
+the _includes folder is override in the  docs file 
