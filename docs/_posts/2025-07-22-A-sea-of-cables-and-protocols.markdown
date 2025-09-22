@@ -29,8 +29,48 @@ Just as your house has an address, your internet connection does too. All intern
 
 Nowadays, IPv4 is used to represent some form of local network, and it's being used at the same time as IPv6, which has 8 bytes to represent addresses. IPv6 uses the hexadecimal system to represent them, so they look like AAAB\:FFF::1234, where :: represents a space where all numbers inside are 0.
 
-Now, remembering all these numbers is hard. Imagine — wouldn't it be so much simpler to say to the Uber driver, "Take me to the house of Fulanito de Tal," and he immediately knew where to go? Well, the Uber driver is your browser, and there is an actual translator that allows this to happen. They are called Domain Name Servers. These servers translate the name of the place you want to go — e.g., minijuegos.com — to the IP address of the server in which minijuegos.com is hosted.
-
+Now, remembering all these numbers is hard. Imagine — wouldn't it be so much simpler to say to the Uber driver, "Take me to the house of Fulanito de Tal," and he immediately knew where to go? Well, the Uber driver is your browser, and there is an actual translator that allows this to happen. They are called Domain Name Servers. These servers translate the name of the place you want to go — e.g., minijuegos.com — to the IP address of the server in which minijuegos.com is hosted. This is how you and facebook can comunicate via letters using as delivery system something call TCP protocol.... wait you did not know you and facebook sended each other letters? well kind of, keep readding.
 ## Server-Client Model and HTTP Methods and Errors
 
-## Domains and Programming Languages
+You log in to your favorite social network—it doesn’t matter which one, what I’m about to explain is the same for all web pages.  
+You pick a photo, fill out the description, and tag your friends’ accounts in it. Then, when you press *upload photo*, something amazing happens. Your device (the client) writes a letter to the social network’s backend (the server).  
+
+What does the letter contain?  
+
+It contains all the information you just filled out, plus more, in an already established format called a **POST request**.  
+The server receives and processes all the information in the letter, then responds to your device with a **200 status code**, which means everything went fine and your post was created.  
+
+These established formats for the letters the client and server send to each other are called **HTTP methods**. Besides POST, there are others such as **GET, PATCH, and DELETE**, each one with a specific purpose.  
+
+The way the backend answers is defined by **HTTP status codes**. There are five main types:  
+
+- **2xx** → success  
+- **3xx** → redirection  
+- **4xx** → client error  
+- **5xx** → server error  
+
+In short, HTTP sets the rules for how the structure or format of each “letter” should look. These letters are then encapsulated in a package that **TCP** (like FedEx in the real world) delivers to each endpoint.  
+
+---
+
+## Programming Languages
+
+Now, imagine setting up all these protocols in pure binary. For you and me, writing and understanding how we are manipulating machines this way would be hell. Sharing that knowledge with others so they could help would be extremely difficult.  
+
+This is why different **programming languages** exist. Each one was created to solve the need of giving a set of instructions to a particular hardware architecture (phones, old and new PCs, routers, antennas—if it has a CPU, it counts) in a way that allows people to express complex ideas and share them with others, without needing to rewrite everything whenever hardware changed.  
+
+Because silver bullets don’t exist, programming evolved in layers: first came **assembly**, built over binary, then **C and C++** over assembly. From there, more languages were built, branching off when someone wanted to prove a new idea or paradigm (like object-oriented programming, functional programming, inheritance, etc.—don’t worry about the details for now).  
+
+The goal has always been to make speaking to the machine as close as possible to speaking to a human—while staying precise.  
+
+But all programming languages share some things in common:  
+
+- **Rules for writing (syntax)**  
+- **Rules for meaning (semantics)**  
+- **Ways to store information (variables and data types)**  
+- **Flow control structures (conditionals and loops)**  
+- **Procedures for reuse (functions or methods)**  
+- **Mechanisms for input and output**  
+- **Levels of abstraction (reducing complex systems into simpler blocks)**  
+
+Now i hope you have a great end of the day, with some  friends to tell them about what you have read here, and while you do it ¿ Does the language you guys are speaking have things in cummon whith programming languages?
