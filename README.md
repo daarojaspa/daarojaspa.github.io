@@ -14,25 +14,18 @@
 ![GitHub](https://img.shields.io/badge/GitHub-Code-black?logo=github)
 ![WSL](https://img.shields.io/badge/Linux-Ubuntu-orange?logo=ubuntu)
 
-<!--
-**daarojaspa/daarojaspa** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
- <div style="width:100%;height:0;padding-bottom:108%;position:relative;"><iframe src="https://giphy.com/embed/krP2NRkLqnKEg" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/help-satisfying-breathe-krP2NRkLqnKEg">via GIPHY</a></p>
-Here are some ideas to get you started:
+## WHAT IS THIS		
+This is a Blog using jekyll a static blog generator written in  Ruby
+its base in something call gems that in local are saved in
+/home/dan/.gem/gems/minima-2.5.1/_includes/social.html but  because i change some of the formatting  that this files provide 
+and i wanted  changes to show on GitHub Pages, and copy and paste the folder:
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
-If you want changes to show on GitHub Pages, you need to copy the file you edited 
-from the gem into your repo’s, _includes folder, and commit it.
+
+to know what each of those files  do or are ment fore i recommend to  read the oficial documentation of jekyll
+
 to run the docs file in  a locall server  run in the folder console:
-bundle exec jekyll serve, this will:
+
+bundle exec jekyll serve, this will: run a local server in your machine so you cna see how your site is been render
 
  the gems are in 
-/home/dan/.gem/gems/minima-2.5.1/_includes/social.html
 the _includes folder is override in the  docs file 
