@@ -1,7 +1,8 @@
 ---
-title: A11y in one post
+title: "A11Y"
 category: Software
----
+--- 
+
 **NVDA** or **Narrator** are terms that mean something to you? No?  
 What about **TalkBack** or **VoiceOver**… no?
 
@@ -60,18 +61,18 @@ Around these columns there are different rooms supported by each column. These r
 To enter each floor, you need to meet the **success criteria** for each guideline, and inside each guideline you can find how to implement that success criteria. As I told you earlier, **AA is the minimum** from an economic, legal, ethical, and functional point of view (it is the one that eliminates most of the friction).
 
 Now, don’t get afraid of the different versions of WCAG. They are **cumulative**: if you comply with **2.2**, you will comply with **2.1**.
-Now, to build or design an interface, you first need to understand **what kind of information you are displaying**.  
-You should take **WCAG** as good practices that are not optional — they are a must.
+To build or design an interface, you first need to understand **what kind of information you are displaying**.  
+You should take **WCAG** as good practices that are a must.
 
 With this knowledge, you can navigate the guidelines more effectively and apply them with intention.  
-However, to make accessibility truly effective, you need to **know your users** and understand the different **body–environment mismatches** that exist — not only the ones that are easily perceivable.
+However, to make accessibility truly effective, you need to **know your users** and understand the different **body–environment mismatches** that exist ( not only the ones that are easily perceivable.)
 
 Below are some examples. You can research each of them further on your own:
 
 - **Physical**: Parkinson’s disease, tremors, neurodevelopmental motor disorders  
-- **Sensory**: different levels of visual impairment and hearing impairment  
+- **Sensory**: different levels of visual impairment and hearing impairment between the most cummon.
 - **Cognitive / Learning**: ADHD, dyslexia, acquired brain injury (ABI), dysgraphia, dyscalculia  
-- **Mental**: schizophrenia, anxiety disorders, and personality disorders — all of which affect how a person thinks, feels, and acts  
+- **Mental**: schizophrenia, anxiety disorders, and personality disorders (all of which affect how a person thinks, feels, and acts)  
 
 This is the beginning of a journey.  
 Use this knowledge wisely.
@@ -79,3 +80,7 @@ Use this knowledge wisely.
 That will be all for today.  
 Call a friend and teach them what you learned here.  
 Share this post so many more people can become aware.
+
+
+[NVDA tutorial](https://www.youtube.com/watch?v=IpOmsG8OCFo)
+[talkback basics](https://celularparainvidentes.blogspot.com/)
