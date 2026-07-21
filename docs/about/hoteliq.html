@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HotelIQ — Hotel Market Intelligence Platform · Daniel Rojas</title>
+<meta name="description" content="HotelIQ: an on-demand hotel market intelligence platform that replaced 250 minutes of manual pricing lookups with a 5-minute automated run. Built solo, delivered to a live client. A case study by Daniel Rojas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EAEDF1;
+    --surface:#FFFFFF;
+    --ink:#16202B;
+    --ink-2:#43566A;
+    --line:#CBD3DB;
+    --accent:#E2A100;
+    --link:#0A4FA6;
+    --link-hover:#073A7C;
+    --display:'Space Grotesk',system-ui,sans-serif;
+    --body:'Newsreader',Georgia,serif;
+    --mono:'Space Mono','SFMono-Regular',monospace;
+    --maxw:1080px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:18px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:var(--link);text-decoration-thickness:1.5px;text-underline-offset:3px}
+  a:hover{color:var(--link-hover)}
+  a:focus-visible,button:focus-visible{
+    outline:3px solid var(--link);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .narrow{max-width:760px}
+
+  /* Skip link — accessibility */
+  .skip{
+    position:absolute;left:-9999px;top:0;
+    background:var(--ink);color:#fff;padding:12px 18px;
+    font-family:var(--mono);font-size:14px;z-index:10;
+  }
+  .skip:focus{left:8px;top:8px;color:#fff}
+
+  /* Eyebrow label */
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-2);
+    display:flex;align-items:center;gap:12px;
+    margin:0 0 28px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:28px;height:3px;background:var(--accent);flex:none;
+  }
+
+  /* ---------- Masthead ---------- */
+  header.masthead{
+    border-bottom:1px solid var(--line);
+    padding:22px 0;
+  }
+  .masthead .wrap{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .brand{font-family:var(--mono);font-weight:700;font-size:15px;letter-spacing:.04em;text-decoration:none;color:var(--ink)}
+  .brand:hover{color:var(--link)}
+  .masthead nav{font-family:var(--mono);font-size:14px;display:flex;gap:22px}
+  .masthead nav a{color:var(--ink-2);text-decoration:none}
+  .masthead nav a:hover{color:var(--link)}
+
+  /* ---------- Breadcrumb / back ---------- */
+  .backbar{padding:22px 0 0}
+  .backbar a{font-family:var(--mono);font-size:13px;text-decoration:none;color:var(--ink-2)}
+  .backbar a:hover{color:var(--link)}
+  .backbar a::before{content:"\2190  "}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:40px 0 56px}
+  .hero .kicker{
+    font-family:var(--mono);font-size:14px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-2);margin:0 0 26px;
+  }
+  .hero h1{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:clamp(2rem,5vw,3.4rem);
+    line-height:1.08;
+    letter-spacing:-.015em;
+    margin:0 0 24px;
+    max-width:20ch;
+  }
+  .hero h1 .mark{
+    background:linear-gradient(transparent 62%,rgba(226,161,0,.42) 62%);
+  }
+  .hero .lede{
+    font-size:clamp(1.1rem,2.2vw,1.35rem);
+    max-width:60ch;color:var(--ink);margin:0 0 32px;
+  }
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px}
+  .btn{
+    font-family:var(--mono);font-size:14px;font-weight:700;
+    letter-spacing:.02em;text-decoration:none;
+    padding:13px 22px;border:1.5px solid var(--ink);
+    display:inline-flex;align-items:center;gap:9px;
+    transition:transform .15s ease,background .15s ease,color .15s ease;
+  }
+  .btn-primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .btn-primary:hover{background:#000;color:#fff;transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:#fff;transform:translateY(-2px)}
+  @media (prefers-reduced-motion:reduce){.btn:hover{transform:none}}
+
+  /* ---------- Impact stat strip ---------- */
+  .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 0;background:var(--surface)}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+  .stat .n{font-family:var(--display);font-weight:600;font-size:clamp(1.7rem,3.4vw,2.4rem);line-height:1;letter-spacing:-.02em}
+  .stat .n .unit{font-size:.5em;color:var(--ink-2);font-weight:500;margin-left:2px}
+  .stat .l{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-top:10px;line-height:1.5}
+  @media(max-width:760px){.stats .wrap{grid-template-columns:repeat(2,1fr);gap:26px}}
+
+  /* ---------- Content sections ---------- */
+  section.block{padding:60px 0}
+  section.block + section.block{padding-top:0}
+  section.block h2{
+    font-family:var(--display);font-weight:600;
+    font-size:clamp(1.5rem,3.2vw,2.1rem);line-height:1.12;
+    letter-spacing:-.01em;margin:0 0 22px;
+  }
+  section.block h3{
+    font-family:var(--display);font-weight:600;font-size:1.2rem;
+    line-height:1.25;margin:0 0 6px;letter-spacing:-.005em;
+  }
+  section.block p{margin:0 0 18px}
+  section.block p:last-child{margin-bottom:0}
+  .divider{border:0;border-top:1px solid var(--line);margin:0}
+
+  /* ---------- Architecture diagram ---------- */
+  .flow{
+    background:var(--surface);border:1px solid var(--line);
+    padding:30px;display:flex;flex-direction:column;gap:0;
+  }
+  .layer{
+    display:grid;grid-template-columns:44px 1fr;gap:18px;align-items:start;
+    padding:16px 0;
+  }
+  .layer .idx{
+    font-family:var(--mono);font-weight:700;font-size:13px;
+    width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+    border:1.5px solid var(--ink);border-radius:50%;color:var(--ink);flex:none;
+  }
+  .layer .name{font-family:var(--display);font-weight:600;font-size:1.05rem;margin:0 0 3px}
+  .layer .desc{font-size:.98rem;color:var(--ink-2);margin:0}
+  .arrow{
+    grid-column:1;justify-self:center;color:var(--accent);
+    font-family:var(--mono);font-size:20px;line-height:1;height:22px;
+  }
+  .flow .loop{
+    margin-top:14px;padding-top:16px;border-top:1px dashed var(--line);
+    font-family:var(--mono);font-size:12.5px;color:var(--ink-2);
+    letter-spacing:.04em;display:flex;align-items:center;gap:10px;
+  }
+  .flow .loop::before{content:"\21BB";color:var(--accent);font-size:18px}
+
+  .views{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:14px}
+  .views li{
+    background:var(--surface);border:1px solid var(--line);padding:18px 20px;
+    display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:baseline;
+  }
+  .views li .num{font-family:var(--mono);font-weight:700;color:var(--accent-text,#9a7100);font-size:14px}
+  .views li b{font-family:var(--display);font-weight:600}
+
+  /* ---------- Skills ---------- */
+  .skills{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .skill{background:var(--surface);border:1px solid var(--line);padding:24px}
+  .skill .tag{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#9a7100;margin:0 0 12px;display:flex;align-items:center;gap:9px}
+  .skill .tag::before{content:"";width:8px;height:8px;background:var(--accent);flex:none}
+  .skill p{font-size:.98rem;margin:0}
+  @media(max-width:760px){.skills{grid-template-columns:1fr}}
+
+  /* ---------- Decisions table ---------- */
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);background:var(--surface)}
+  table{border-collapse:collapse;width:100%;min-width:640px;font-size:.95rem}
+  thead th{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--ink-2);text-align:left;padding:16px 18px;border-bottom:1.5px solid var(--ink);
+    vertical-align:bottom;
+  }
+  tbody td{padding:16px 18px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.45}
+  tbody tr:last-child td{border-bottom:0}
+  tbody td:first-child{font-family:var(--display);font-weight:600}
+  tbody td:nth-child(2){color:var(--ink-2)}
+
+  /* ---------- Callout ---------- */
+  .callout{
+    background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);
+    padding:22px 26px;font-size:1.05rem;
+  }
+  .callout .built{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin:14px 0 0}
+
+  /* ---------- Contact ---------- */
+  footer.contact{border-top:1px solid var(--line);background:var(--ink);color:#fff;padding:64px 0 48px;margin-top:20px}
+  footer.contact .eyebrow{color:#9fb0c2}
+  footer.contact .eyebrow::before{background:var(--accent)}
+  footer.contact h2{font-family:var(--display);font-weight:600;font-size:clamp(1.7rem,4vw,2.6rem);margin:0 0 28px;line-height:1.1;letter-spacing:-.01em}
+  .links{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:40px}
+  .links a{
+    font-family:var(--mono);font-size:14px;font-weight:700;text-decoration:none;
+    color:#fff;border:1.5px solid #43566A;padding:12px 18px;
+    display:inline-flex;align-items:center;gap:9px;
+    transition:border-color .15s ease,background .15s ease;
+  }
+  .links a:hover{border-color:var(--accent);background:rgba(226,161,0,.12);color:#fff}
+  .links a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+  .colophon{font-family:var(--mono);font-size:12.5px;color:#8095a8;line-height:1.7;border-top:1px solid #2b3a4a;padding-top:24px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="index.html">DANIEL ROJAS</a>
+    <nav aria-label="Sections">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#profile">Profile</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="backbar">
+  <div class="wrap"><a href="index.html">Back to all work</a></div>
+</div>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker">Case Study · Data Engineering &amp; Market Intelligence</p>
+      <h1>HotelIQ — a <span class="mark">market intelligence</span> platform, on demand.</h1>
+      <p class="lede">An on-demand platform that collects live competitor hotel pricing and surfaces it in an interactive dashboard — triggered by a non-technical operator filling out a single web form. Built solo. Delivered to a live client.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://sites.google.com/view/hoteliq/inicio">View live demo</a>
+        <a class="btn btn-ghost" href="index.html">Back to portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT STATS -->
+  <section class="stats" aria-label="Impact at a glance">
+    <div class="wrap">
+      <div class="stat">
+        <div class="n">250<span class="unit">min</span> &rarr; 5<span class="unit">min</span></div>
+        <div class="l">Manual work per city, automated</div>
+      </div>
+      <div class="stat">
+        <div class="n">50 &rarr; 100</div>
+        <div class="l">Pricing records per query</div>
+      </div>
+      <div class="stat">
+        <div class="n">6</div>
+        <div class="l">Architectural layers, coordinated</div>
+      </div>
+      <div class="stat">
+        <div class="n">1</div>
+        <div class="l">Solo builder, live client</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="block">
+    <div class="wrap narrow">
+      <p class="eyebrow">The problem</p>
+      <p>Hotels and hospitality intermediaries in Colombia were making pricing decisions based on manual lookups and gut instinct. Pulling competitive pricing data for a single city took a trained operator roughly <strong>250 minutes</strong> and produced around <strong>50 data points</strong> — all of which were already stale by the time the analysis was done.</p>
+      <p>A hospitality intermediary needed a tool that could automate this process and turn it into actionable intelligence. They used it in two ways: to <strong>negotiate favorable bulk rates</strong> with hotels — knowing what the market actually charges is leverage — and to <strong>advise their hotel clients on competitive pricing</strong>, showing where a property stood relative to the market, city by city, date by date.</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- WHAT WAS BUILT -->
+  <section class="block">
+    <div class="wrap narrow">
+      <p class="eyebrow">What was built</p>
+      <p>HotelIQ is an on-demand hotel market intelligence platform that collects live competitor pricing data and surfaces it in an interactive dashboard — triggered by a non-technical operator filling out a single web form.</p>
+      <div class="callout">
+        <strong>Result:</strong> 250 minutes of manual work replaced by a 5-minute automated run, with up to 100 pricing records per query instead of 50.
+        <p class="built">Built solo · Delivered to a live client · <a href="https://sites.google.com/view/hoteliq/inicio">Live demo &rarr;</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE -->
+  <section class="block">
+    <div class="wrap">
+      <p class="eyebrow">Architecture</p>
+      <div class="narrow">
+        <p>A pipeline connecting a browser interface to an extraction service, to a storage layer, to a BI dashboard — with defined contracts between each layer.</p>
+      </div>
+
+      <div class="flow" role="img" aria-label="System architecture: an operator's browser form dispatches an authenticated request through a serverless gateway to on-demand cloud compute, which calls a managed data-extraction service, writes deduplicated results to cloud storage, and feeds a BI dashboard that is embedded back into the operator interface.">
+        <div class="layer">
+          <span class="idx">1</span>
+          <div><p class="name">Operator interface</p><p class="desc">Browser form — no login, no setup. Sends search parameters.</p></div>
+        </div>
+        <div class="arrow" aria-hidden="true">&darr;</div>
+        <div class="layer">
+          <span class="idx">2</span>
+          <div><p class="name">Serverless gateway</p><p class="desc">Rate limiting · authentication · credential isolation. Dispatches an authenticated request.</p></div>
+        </div>
+        <div class="arrow" aria-hidden="true">&darr;</div>
+        <div class="layer">
+          <span class="idx">3</span>
+          <div><p class="name">Cloud compute</p><p class="desc">On-demand · no idle cost · containerized pipeline. Orchestrates the extraction and processing.</p></div>
+        </div>
+        <div class="arrow" aria-hidden="true">&darr;</div>
+        <div class="layer">
+          <span class="idx">4</span>
+          <div><p class="name">Data extraction</p><p class="desc">Managed external service. Returns hotel listings to the compute layer.</p></div>
+        </div>
+        <div class="arrow" aria-hidden="true">&darr;</div>
+        <div class="layer">
+          <span class="idx">5</span>
+          <div><p class="name">Cloud storage</p><p class="desc">Deduplication · receives processed results in chunks · feeds the dashboard.</p></div>
+        </div>
+        <div class="arrow" aria-hidden="true">&darr;</div>
+        <div class="layer">
+          <span class="idx">6</span>
+          <div><p class="name">BI dashboard</p><p class="desc">Auto-refreshes after each run · embedded back into the operator interface.</p></div>
+        </div>
+        <div class="loop">Results loop back: the dashboard is embedded in the same interface the operator started from.</div>
+      </div>
+
+      <div class="narrow">
+        <h3 style="margin-top:34px">Three views in the dashboard</h3>
+        <ul class="views">
+          <li><span class="num">01</span><span><b>Market snapshot.</b> Price distribution of the current market.</span></li>
+          <li><span class="num">02</span><span><b>Above average.</b> Properties above the statistical mean, ranked by distance from it.</span></li>
+          <li><span class="num">03</span><span><b>Historical trend.</b> Client pricing vs. competitor pricing across cities over time.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- SKILLS -->
+  <section class="block">
+    <div class="wrap">
+      <p class="eyebrow">Skills demonstrated</p>
+      <div class="skills">
+        <div class="skill">
+          <p class="tag">End-to-end system design</p>
+          <p>Designed a pipeline connecting a browser interface to an extraction service to a storage layer to a BI dashboard — coordinating across multiple platforms with defined contracts between each of six architectural layers.</p>
+        </div>
+        <div class="skill">
+          <p class="tag">Problem scoping &amp; vendor evaluation</p>
+          <p>Spent a week researching whether an official data partnership was possible before writing pipeline code. Found the team's existing extraction tool had been sandboxed by the target platform — silently returning fabricated prices. Weighed rebuilding it, a third-party vendor (minimum volume too large), and a managed service that fit the constraints.</p>
+        </div>
+        <div class="skill">
+          <p class="tag">Constraint-driven infrastructure</p>
+          <p>With no dedicated server budget and a need to deliver quickly, built the entire backend on zero-provisioning services. Evaluated a traditional stack (in-memory cache + relational database) and ruled it out — operational overhead was disproportionate to the project's scale.</p>
+        </div>
+        <div class="skill">
+          <p class="tag">Reliability without a backend</p>
+          <p>Implemented chunked data delivery with exponential-backoff retry on the pipeline side, and chunk-level idempotency with a distributed concurrency lock on the receiving side — so no data is lost or duplicated even when requests fail or concurrent triggers fire.</p>
+        </div>
+        <div class="skill">
+          <p class="tag">Accessible operator interface</p>
+          <p>Designed the operator UI to require zero training: a single form, immediate status feedback, abuse prevention via cooldown, and the dashboard embedded on the same page.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- KEY DECISIONS -->
+  <section class="block">
+    <div class="wrap">
+      <p class="eyebrow">Key decisions</p>
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Decision</th><th scope="col">What was considered</th><th scope="col">Why</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Managed extraction service</td>
+              <td>Custom scraper · third-party vendor</td>
+              <td>Custom scraper was sandboxed; vendor minimum exceeded project scale.</td>
+            </tr>
+            <tr>
+              <td>Cloud-native storage</td>
+              <td>In-memory cache + relational database</td>
+              <td>No infrastructure budget; fits existing client ecosystem.</td>
+            </tr>
+            <tr>
+              <td>On-demand cloud compute</td>
+              <td>Dedicated server</td>
+              <td>No idle cost; spins up per request; nothing to maintain.</td>
+            </tr>
+            <tr>
+              <td>Serverless gateway for auth</td>
+              <td>Credentials through the browser</td>
+              <td>Credentials in client-side code are a security vulnerability.</td>
+            </tr>
+            <tr>
+              <td>Browser-compatible request technique</td>
+              <td>Standard async HTTP</td>
+              <td>Gateway CORS restrictions required an alternative approach.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- CONTACT -->
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h2>Let's build something worth explaining.</h2>
+    <div class="links">
+      <a href="https://sites.google.com/view/hoteliq/inicio">HotelIQ demo</a>
+      <a href="https://github.com/daarojaspa">GitHub</a>
+      <a href="https://www.linkedin.com/in/daniel-rojas-paredes-8616bb1ab">LinkedIn</a>
+      <a href="https://daarojaspa.github.io/">Blog</a>
+      <a href="mailto:daarojaspa@unal.edu.co">Email</a>
+    </div>
+    <p class="colophon">
+      Daniel Rojas Paredes — Colombia.<br>
+      Built to be accessible: semantic landmarks, keyboard focus, AA contrast, and reduced-motion support.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
